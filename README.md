@@ -9,6 +9,7 @@ gates per chip.
 
 e.g.,
 
+```
 $ ./counter.py  *.hdl
 And: 2
 Mux16: 64
@@ -31,3 +32,4 @@ ALU: 772
 Inc16: 262
 Mux: 4
 DMux: 5
+```
