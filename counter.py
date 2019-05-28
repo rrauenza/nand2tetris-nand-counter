@@ -52,14 +52,23 @@ def doit(files):
 
     for chipname in all_chips.keys():
         count = count_chip(all_chips, chipname)
-        print "%s: %s" % (chipname, count)
+        if count is not None:
+            print "%s: %s" % (chipname, count)
+        else:
+            print "%s: error" % (chipname,)
 
 def count_chip(chips, chipname):
     if chipname in _COUNTS:
         return _COUNTS[chipname]
     count = 0
+    if chipname not in chips:
+        print "Error: Missing implementation of %s" % chipname
+        return None
     for chip in chips[chipname]:
-        count += count_chip(chips, chip)
+        c = count_chip(chips, chip)
+        if c is None:
+            return None
+        count += c
     _COUNTS[chipname] = count
     return count
 
