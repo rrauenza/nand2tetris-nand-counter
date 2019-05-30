@@ -31,7 +31,12 @@ _GRAMMAR = r"""
     %ignore WS
 """
 
-_COUNTS = { "Nand": 1 }
+_COUNTS = {
+    "Nand": 1,    # Self evident
+    "DFF": 5,     # 4 Nand, 1 Not
+}
+
+
 
 def _main(argv):
     parser = argparse.ArgumentParser()
